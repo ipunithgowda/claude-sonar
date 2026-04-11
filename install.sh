@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# claude-code-jarvis — one-shot installer.
+# claude-sonar — one-shot installer.
 # Installs the AXE voice hook into ~/.claude/hooks, checks deps, and prints
 # next steps. Does NOT touch settings.json — you merge that yourself to avoid
 # clobbering existing hooks.
@@ -8,7 +8,7 @@ set -e
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 HOOKS_DIR="$HOME/.claude/hooks"
 
-echo "==> claude-code-jarvis installer"
+echo "==> claude-sonar installer"
 echo ""
 
 # --- Check deps -------------------------------------------------------------

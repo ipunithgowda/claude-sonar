@@ -7,7 +7,7 @@ Self-contained HTML. No build step. No external deps. Open in Safari, full-scree
 ### Record it
 
 ```bash
-open -a Safari /Users/YOU/claude-code-jarvis/assets/ad.html
+open -a Safari /Users/YOU/claude-sonar/assets/ad.html
 ```
 
 1. Press `Cmd + Ctrl + F` — full screen.
@@ -19,7 +19,7 @@ open -a Safari /Users/YOU/claude-code-jarvis/assets/ad.html
 
 | Time | Scene | Content |
 |------|-------|---------|
-| 00:00 – 02:5 | Brand | `claude-code-jarvis` hero type |
+| 00:00 – 02:5 | Brand | `claude-sonar` hero type |
 | 02:5 – 06:5 | Problem | *"Four terminals. One pair of eyes."* |
 | 06:5 – 11:0 | Stack | Stop hook → Groq 300ms → edge-tts |
 | 11:0 – 15:5 | Voice | Real AXE line + animated waveform |
