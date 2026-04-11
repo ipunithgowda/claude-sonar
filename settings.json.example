@@ -1,0 +1,21 @@
+{
+  "_comment": "Merge the `hooks.Stop` block below into your existing ~/.claude/settings.json. The Glass chime and the voice run in parallel — the chime fires instantly while the voice script forks async and returns immediately.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff &",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "/Users/YOU/.claude/hooks/axe-voice.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

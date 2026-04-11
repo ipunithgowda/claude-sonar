@@ -1,0 +1,6 @@
+hooks/.env
+hooks/voice-cache/*.mp3
+hooks/voice.log
+/tmp/
+.DS_Store
+*.swp
