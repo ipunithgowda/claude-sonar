@@ -10,7 +10,9 @@ I run 12+ projects and 8+ terminals at the same time. My AI assistant **AXE — 
 
 ## Why this exists
 
-Visual attention is single-threaded. You can't watch four terminals at once. But sound is omnidirectional — you hear it while your eyes are on something else. That's the gap.
+Visual attention is single-threaded. You can't watch eight terminals at once. So you end up anxiously switching between them — checking, rechecking, context-switching — just to see if something finished or broke. That overhead eats the productivity you're supposed to be getting from parallel delegation.
+
+With `claude-sonar`, you stop monitoring. You only check a terminal when AXE tells you it needs your attention. The rest of the time? You're reading docs, reviewing a PR, sketching architecture, or just thinking — outside the IDE, doing the work that actually needs a human.
 
 `claude-sonar` wires a Stop hook into Claude Code. After every turn:
 
