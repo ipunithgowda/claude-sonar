@@ -99,10 +99,6 @@ Tail `~/.claude/hooks/voice.log` — every invocation logs there.
 - **Voice spells letters** → write callsigns as single words (`AXE` not `A.X.E.`)
 - **Generic lines only** → Groq call failing; check `voice.log` for HTTP errors
 
-## The name
-
-*Sonar* — scanning multiple targets you can't see. They ping you back when they have something to report.
-
 *AXE — Automated X-platform Engine.* The assistant callsign.
 
 ---
