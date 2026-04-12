@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif">
+  <rect width="1200" height="400" fill="#000"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" fill="#8a8a8e" font-size="13" font-weight="500" letter-spacing="3">HOW IT WORKS</text>
+
+  <!-- Step 1: Claude finishes turn -->
+  <rect x="30" y="70" width="200" height="100" rx="12" fill="#1a1a1d" stroke="#2d2d30" stroke-width="1"/>
+  <text x="130" y="107" text-anchor="middle" fill="#f5f5f7" font-size="15" font-weight="600">Claude Code</text>
+  <text x="130" y="130" text-anchor="middle" fill="#8a8a8e" font-size="12">finishes a turn</text>
+  <text x="130" y="150" text-anchor="middle" fill="#8a8a8e" font-size="12">writes transcript</text>
+
+  <!-- Arrow 1 -->
+  <line x1="230" y1="120" x2="278" y2="120" stroke="#0a84ff" stroke-width="2"/>
+  <polygon points="278,114 290,120 278,126" fill="#0a84ff"/>
+
+  <!-- Step 2: Stop hook fires -->
+  <rect x="290" y="70" width="200" height="100" rx="12" fill="#1a1a1d" stroke="#0a84ff" stroke-width="1.5"/>
+  <text x="390" y="107" text-anchor="middle" fill="#0a84ff" font-size="15" font-weight="600">Stop Hook</text>
+  <text x="390" y="130" text-anchor="middle" fill="#8a8a8e" font-size="12">tails transcript</text>
+  <text x="390" y="150" text-anchor="middle" fill="#8a8a8e" font-size="12">grabs last message</text>
+  <!-- <10ms badge -->
+  <rect x="342" y="73" width="96" height="20" rx="10" fill="#0a84ff"/>
+  <text x="390" y="87" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">returns &lt;10ms</text>
+
+  <!-- Arrow 2 -->
+  <line x1="490" y1="120" x2="538" y2="120" stroke="#0a84ff" stroke-width="2"/>
+  <polygon points="538,114 550,120 538,126" fill="#0a84ff"/>
+
+  <!-- Step 3: Groq LLM -->
+  <rect x="550" y="70" width="200" height="100" rx="12" fill="#1a1a1d" stroke="#2d2d30" stroke-width="1"/>
+  <text x="650" y="100" text-anchor="middle" fill="#f5f5f7" font-size="15" font-weight="600">Groq</text>
+  <text x="650" y="122" text-anchor="middle" fill="#8a8a8e" font-size="12">llama-3.1-8b-instant</text>
+  <text x="650" y="142" text-anchor="middle" fill="#8a8a8e" font-size="12">summarizes to 10 words</text>
+  <!-- ~300ms badge -->
+  <rect x="610" y="73" width="80" height="20" rx="10" fill="#30d158"/>
+  <text x="650" y="87" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">~300ms</text>
+
+  <!-- Arrow 3 -->
+  <line x1="750" y1="120" x2="798" y2="120" stroke="#0a84ff" stroke-width="2"/>
+  <polygon points="798,114 810,120 798,126" fill="#0a84ff"/>
+
+  <!-- Step 4: edge-tts -->
+  <rect x="810" y="70" width="170" height="100" rx="12" fill="#1a1a1d" stroke="#2d2d30" stroke-width="1"/>
+  <text x="895" y="107" text-anchor="middle" fill="#f5f5f7" font-size="15" font-weight="600">edge-tts</text>
+  <text x="895" y="130" text-anchor="middle" fill="#8a8a8e" font-size="12">en-GB-RyanNeural</text>
+  <text x="895" y="150" text-anchor="middle" fill="#8a8a8e" font-size="12">British butler voice</text>
+
+  <!-- Arrow 4 -->
+  <line x1="980" y1="120" x2="1018" y2="120" stroke="#0a84ff" stroke-width="2"/>
+  <polygon points="1018,114 1030,120 1018,126" fill="#0a84ff"/>
+
+  <!-- Step 5: afplay (speaker) -->
+  <rect x="1030" y="70" width="140" height="100" rx="12" fill="#0a84ff" stroke="none"/>
+  <!-- Speaker icon -->
+  <g fill="#fff">
+    <rect x="1075" y="103" width="12" height="20" rx="2"/>
+    <polygon points="1087,103 1105,92 1105,134 1087,123"/>
+    <!-- Sound waves -->
+    <path d="M1112,100 Q1122,113 1112,126" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M1118,93 Q1132,113 1118,133" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  <text x="1100" y="152" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">afplay</text>
+
+  <!-- === Bottom: example output === -->
+  <rect x="80" y="210" width="1040" height="70" rx="12" fill="#0d0d10" stroke="#1c1c1f" stroke-width="1"/>
+
+  <!-- Waveform bars -->
+  <g fill="#0a84ff">
+    <rect x="108" y="230" width="5" height="14" rx="2.5">
+      <animate attributeName="height" values="14;28;14" dur="1.1s" begin="0s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="237;230;237" dur="1.1s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="118" y="230" width="5" height="24" rx="2.5">
+      <animate attributeName="height" values="24;38;24" dur="1.1s" begin="0.1s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="232;225;232" dur="1.1s" begin="0.1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="128" y="230" width="5" height="34" rx="2.5">
+      <animate attributeName="height" values="34;46;34" dur="1.1s" begin="0.2s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="227;221;227" dur="1.1s" begin="0.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="138" y="230" width="5" height="20" rx="2.5">
+      <animate attributeName="height" values="20;36;20" dur="1.1s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="234;226;234" dur="1.1s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="148" y="230" width="5" height="28" rx="2.5">
+      <animate attributeName="height" values="28;42;28" dur="1.1s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="230;223;230" dur="1.1s" begin="0.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="158" y="230" width="5" height="16" rx="2.5">
+      <animate attributeName="height" values="16;30;16" dur="1.1s" begin="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="236;229;236" dur="1.1s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <text x="186" y="251" fill="#f5f5f7" font-size="18" font-style="italic">"All 104 tests passing, bundle building now, sir."</text>
+
+  <!-- Fallback path -->
+  <text x="600" y="316" text-anchor="middle" fill="#5a5a5e" font-size="12">if Groq fails</text>
+  <line x1="600" y1="324" x2="600" y2="350" stroke="#5a5a5e" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="500" y="350" width="200" height="36" rx="8" fill="#1a1a1d" stroke="#2d2d30" stroke-width="1"/>
+  <text x="600" y="374" text-anchor="middle" fill="#8a8a8e" font-size="12">cached MP3 fallback</text>
+
+  <!-- Free tier label -->
+  <rect x="30" y="350" width="180" height="36" rx="8" fill="#0d1a0d" stroke="#30d158" stroke-width="1"/>
+  <text x="120" y="374" text-anchor="middle" fill="#30d158" font-size="13" font-weight="500">100% free tier stack</text>
+</svg>

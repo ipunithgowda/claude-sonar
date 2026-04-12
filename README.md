@@ -24,9 +24,13 @@ With `claude-sonar`, you stop monitoring. You only check a terminal when AXE tel
 4. `edge-tts` speaks it via `en-GB-RyanNeural` (British butler voice)
 5. Hook returns in <10ms — Claude never blocks
 
+![How it works](./screenshots/how-it-works.svg)
+
 ![Voice log](./screenshots/voice-log.svg)
 
 Every line above is real, pulled straight from `voice.log`. None are scripted — each is generated fresh from what Claude actually just said.
+
+![4 terminals with AXE voice](./screenshots/vscode-multi-terminal.svg)
 
 ---
 
