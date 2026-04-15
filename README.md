@@ -46,6 +46,7 @@ Every line above is real, pulled straight from `voice.log`. None are scripted �
 ## Key features
 
 - 🎯 **Project-aware voice** — every line names the project: *"Build successful for Witness, sir."* / *"Two test failures on Tripwire, sir."*
+- 🗣️ **Pick how AXE addresses you** — installer asks at setup: **Sir**, **Mam** (British short form), or **Neutral** (no honorific). Stored as `AXE_ADDRESS` in `~/.claude/hooks/.env`; flip anytime with one edit.
 - 📡 **All events covered** — Stop, PermissionRequest, SubagentStop, Notification. AXE speaks on every pause, not just turn completion.
 - 🔧 **Tool-only turns included** — even if Claude only ran Edit/Bash/Write with no text reply, AXE still speaks about what tools were used.
 - ⚡ **Sub-10ms hook** — fully async. Claude never waits on voice.
@@ -65,10 +66,12 @@ Every line above is real, pulled straight from `voice.log`. None are scripted �
 ## Install
 
 ```bash
-git clone https://github.com/filmy-munky/claude-sonar.git
+git clone https://github.com/ipunithgowda/claude-sonar.git
 cd claude-sonar
 ./install.sh
 ```
+
+The installer will ask how AXE should address you — **Sir**, **Mam** (British short form — the TTS voice renders it cleanly, whereas "ma'am" gets swallowed), or **Neutral** (no honorific). You can change this later by editing `AXE_ADDRESS=` in `~/.claude/hooks/.env`.
 
 Then:
 
@@ -114,4 +117,4 @@ Tail `~/.claude/hooks/voice.log` — every invocation logs there.
 
 ---
 
-Built by [Punith Gowda](https://github.com/filmy-munky)
+Built by [Punith Gowda](https://github.com/ipunithgowda)

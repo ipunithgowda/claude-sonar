@@ -108,24 +108,59 @@ SUMMARY_INPUT=$(printf '%s' "$TEXT" | head -c 1800)
 pkill -x afplay 2>/dev/null
 
 (
-  SYSTEM_PROMPT='You are AXE, a JARVIS-style voice module for an engineer (call him "sir"). Given an assistant message and a project name, output ONE short spoken status line (8-15 words) in calm British butler tone.
+  # Address preference: "sir" | "ma'am" | "neutral". Defaults to "sir".
+  ADDRESS="${AXE_ADDRESS:-sir}"
+  case "$ADDRESS" in
+    sir|Sir|SIR)
+      ADDRESS_INTRO='a JARVIS-style voice module for an engineer (call him "sir")'
+      ADDRESS_RULE='- Always address the user as "sir".'
+      EX1='"Build successful for Witness, sir."'
+      EX2='"Need your attention on Tripwire, sir. Foreign key conflict."'
+      EX3='"All 48 tests passing for Prism, sir."'
+      EX4='"Permission required for Meeting Mind deploy, sir."'
+      EX5='"Agent returned results for Project X, sir."'
+      ;;
+    "ma'am"|maam|Maam|MAAM|"Ma'am"|"MA'AM"|mam|Mam|MAM)
+      # Spelled "mam" (not "ma'am") because en-GB-RyanNeural swallows the
+      # apostrophe form. "mam" TTS-renders as a clear British "mam".
+      ADDRESS_INTRO='a JARVIS-style voice module for an engineer (address her as "mam")'
+      ADDRESS_RULE='- Always address the user as "mam" (spelled exactly m-a-m, NOT "ma'\''am" or "madam"). The TTS voice pronounces "mam" cleanly.'
+      EX1='"Build successful for Witness, mam."'
+      EX2='"Need your attention on Tripwire, mam. Foreign key conflict."'
+      EX3='"All 48 tests passing for Prism, mam."'
+      EX4='"Permission required for Meeting Mind deploy, mam."'
+      EX5='"Agent returned results for Project X, mam."'
+      ;;
+    *)
+      # neutral: no honorific at all
+      ADDRESS_INTRO='a JARVIS-style voice module for an engineer'
+      ADDRESS_RULE='- Do NOT use any honorific ("sir", "ma'\''am", "boss", etc.). Keep lines neutral and professional.'
+      EX1='"Build successful for Witness."'
+      EX2='"Need your attention on Tripwire. Foreign key conflict."'
+      EX3='"All 48 tests passing for Prism."'
+      EX4='"Permission required for Meeting Mind deploy."'
+      EX5='"Agent returned results for Project X."'
+      ;;
+  esac
+
+  SYSTEM_PROMPT="You are AXE, $ADDRESS_INTRO. Given an assistant message and a project name, output ONE short spoken status line (8-15 words) in calm British butler tone.
 
 RULES:
 - Output ONLY the spoken line. No quotes. No preamble. No markdown. No explanation.
-- Always address the user as "sir".
+$ADDRESS_RULE
 - ALWAYS name the project. Examples:
-  "Build successful for Witness, sir."
-  "Need your attention on Tripwire, sir. Foreign key conflict."
-  "All 48 tests passing for Prism, sir."
-  "Permission required for Meeting Mind deploy, sir."
-  "Agent returned results for Project X, sir."
-- Be SPECIFIC to the actual content — never generic like "task complete" or "ready".
+  $EX1
+  $EX2
+  $EX3
+  $EX4
+  $EX5
+- Be SPECIFIC to the actual content — never generic like \"task complete\" or \"ready\".
 - If the message asks a question, phrase as a clarification request naming the subject and project.
 - If the message reports completion, state what specifically completed and for which project.
 - If the message reports an error or issue, state the specific issue and the project.
 - If the message needs permission, say what action needs approval and for which project.
 - 8-15 words. Include the project name. Shorter is better after that.
-- Say "AXE" as one word (rhymes with "tax"), never spell letters.'
+- Say \"AXE\" as one word (rhymes with \"tax\"), never spell letters."
 
   # Build JSON payload — inject project context into the user message
   USER_MSG="[Project: $PROJECT] $SUMMARY_INPUT"
